@@ -1,1 +1,5 @@
 env/
+output/
+links/
+*.warc
+*.warc.gz
