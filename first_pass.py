@@ -44,16 +44,17 @@ def parse_json_product_list(json_string, url, appPath):
     json_file = open(f'links/{appPath}.json','w')
     product_list = json.loads(json_string)
     json_file.write(json_string)
-    tar_links.write('link,original_url,model_,appPath')
-    model_links.write('link,original_url,model_name,appPath')
+    tar_links.write('link,original_url,model_name,appPath\n')
+    model_links.write('link,original_url,model_name,appPath\n')
+    #TODO: these variable names are bad
     for model in product_list.items():
         for product in model[1]:
-            url = product['href']
-            if '.tar' in url: #direct link to archive
-                tar_links.write(url + '\n')
-            if '?model' in url:
-                model_name = url.split('=')[1]
-                model_links.write(f"https://www.tp-link.com/phppage/gpl-res-list.html?model={urllib.parse.quote(model_name)}&appPath={appPath},{url},{product['model_name']},{appPath}")
+            href = product['href']
+            if '.tar' in href: #direct link to archive
+                tar_links.write(f"{href},{url},{product['model_name']},{appPath}\n")
+            if '?model' in href:
+                model_name = href.split('=')[1]
+                model_links.write(f"https://www.tp-link.com/phppage/gpl-res-list.html?model={urllib.parse.quote(model_name)}&appPath={appPath},{url},{product['model_name']},{appPath}\n")
 
     tar_links.close()
     model_links.close()

@@ -1,5 +1,8 @@
 env/
+__pycache__/
+
 output/
 links/
 *.warc
 *.warc.gz
+*.pyc
