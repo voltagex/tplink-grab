@@ -1,11 +1,17 @@
-import os.path
 from cache import *
+from cached_downloader import *
 from bs4 import BeautifulSoup
+
 import json
 import urllib.parse
+import os
+import os.path
+
+def cache_countries():
+    download_concurrently(get_countries())
 
 def get_countries():
-    soup = cache_and_return_bs('https://www.tp-link.com/au/choose-your-location/')
+    soup = BeautifulSoup(cache('https://www.tp-link.com/au/choose-your-location/'), features="html.parser")
     location_elements = soup.find_all('li', {'class': 'location-item'})
     #TODO: this only grabs the first a in the li, which is OK for now
     elements = [li.find('a')['href'] + "support/gpl-code/" for li in location_elements]
@@ -13,7 +19,7 @@ def get_countries():
 
 def parse_gpl_list():
     for c in get_countries():
-        page = cache_and_return_bs(c)
+        page = BeautifulSoup(cache(c), features="html.parser")
         
         appPath = page.find('meta', {'name': 'AppPath'}) #used to construct e.g. #https://www.tp-link.com/phppage/gpl-res-list.html?model=Deco%20M5&appPath=kz
         #TODO: We've got "301 Redirect" HTML in our cache, deal with it for now
@@ -61,20 +67,7 @@ def parse_json_product_list(json_string, url, appPath):
     json_file.close()
 
 if __name__ == '__main__':
+    if not os.path.isdir('links'): os.mkdir('links')
+    if not os.path.isdir('output'): os.mkdir('output')
+    cache_countries()
     parse_gpl_list()
-
-
-
-    #TODO: put this back in as a method so people can reproduce my work
-    # #https://docs.python.org/3/library/concurrent.futures.html#threadpoolexecutor-example
-    # with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
-    # # Start the load operations and mark each future with its URL
-    #     future_to_url = {executor.submit(cache_and_return_bs, f"{url}support/gpl-code/"): url for url in c}
-    #     for future in concurrent.futures.as_completed(future_to_url):
-    #         url = future_to_url[future]
-    #         try:
-    #             data = future.result()
-    #         except Exception as exc:
-    #             print('%r generated an exception: %s' % (url, exc))
-    #         else:
-    #             print('%r page is %d bytes' % (url, len(data)))
