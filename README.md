@@ -11,7 +11,7 @@ Gets the list of countries and creates initial list of URLs.
 #### links/{country code}.json
 Cache of productTree JSON from each GPL code page
 
-#### {country code}.model.csv
+#### links/country code}.model.csv
 Links to model pages, we need to parse these further to get tarballs
 
 CSV that looks like 
@@ -24,7 +24,7 @@ https://www.tp-link.com/phppage/gpl-res-list.html?model=Deco%20X20&appPath=au,ht
 Used by second_pass.
 
 
-#### {country code}.tars.csv
+#### links/{country code}.tars.csv
 Direct links to tarballs
 
 CSV that looks like
