@@ -42,3 +42,5 @@ Future plans to dump this into SQLite and compress with https://github.com/phire
 ## TODO
 
 * second_pass: grab all links to tarballs, deduplicate, write metadata to sqlite (HEAD requests?), compare with already downloaded tarballs (?)
+
+* document second and third pass

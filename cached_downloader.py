@@ -11,7 +11,7 @@ OUTPUT_PATH = 'output/'
 #TODO: don't run parsing unless needed
 def cache(url):
     if url_already_retrieved(url):
-        print(f'Getting {url} from cache')
+        #print(f'Getting {url} from cache') #TODO: use logging
         return get_from_cache(url)
     
     #https://github.com/webrecorder/warcio/issues/143
@@ -21,7 +21,9 @@ def cache(url):
 
         #TODO: don't run this twice
         fh = open(get_output_filename(url),'wb')
-        warc_writer = WARCWriter(fh)
+        
+        #Turn off gzip, was getting some strange failures - probably concurrency
+        warc_writer = WARCWriter(fh,gzip=False)
         for record in ArchiveIterator(memory_writer.get_stream()):
             warc_writer.write_record(record)
         fh.close()

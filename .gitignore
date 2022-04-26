@@ -3,6 +3,9 @@ __pycache__/
 
 output/
 links/
+temp/
+
 *.warc
 *.warc.gz
 *.pyc
+urls.txt

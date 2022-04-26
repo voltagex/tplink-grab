@@ -1,4 +1,3 @@
-from cache import *
 from cached_downloader import *
 from bs4 import BeautifulSoup
 
@@ -40,7 +39,8 @@ def parse_gpl_list():
             if (len(potential_json) and potential_json[0] == '{'): 
                 #In the inline script there's another variable we're not interested in
                 potential_json = potential_json.split(';\r\n')[0]
-                parse_json_product_list(potential_json, c, appPath)
+                if 'menuTree' in potential_json: #did linebreaks change halfway through the download here?
+                    potential_json = potential_json.split(';\n')[0]
 
 def parse_json_product_list(json_string, url, appPath):
     if (os.path.isfile(f'links/{appPath}.tars.csv')):
@@ -55,7 +55,7 @@ def parse_json_product_list(json_string, url, appPath):
     #TODO: these variable names are bad
     for model in product_list.items():
         for product in model[1]:
-            href = product['href']
+            href = product['href'].strip()
             if '.tar' in href: #direct link to archive
                 tar_links.write(f"{href},{url},{product['model_name']},{appPath}\n")
             if '?model' in href:
