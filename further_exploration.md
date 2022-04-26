@@ -8,5 +8,5 @@ zpool create pool -O dedup=on /dev/sda5
 zfs set compression=zstd pool
 zfs create pool/data
 zfs set mountpoint=/data pool/data
-for t in /tmp/share/Data/Compressed/TPLink/*.tar*; do ( echo $t;tar --one-top-level -axf "$t" ) &> /tmp/share/Data/Compressed/TPLink/extract.log; done
+for t in /tmp/share/Data/Compressed/TPLink/*.tar*; do ( echo $t;tar --one-top-level -axf "$t" ) &>> /tmp/share/Data/Compressed/TPLink/extract.log; done
 ```
