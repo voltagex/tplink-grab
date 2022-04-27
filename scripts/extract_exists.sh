@@ -38,7 +38,21 @@ dirname="${filename%%.rar}"
 if [ ! -d "$dirname" ]
 then
 	echo $r
-	unrar -op$dirname $r
+	unrar x -op$dirname $r
+fi
+
+) &>> extract-$DATE.log
+done;
+
+echo last
+for z in $1/*.zip; do 
+( 
+filename=$(basename -- "$z")
+dirname="${filename%%.zip}"
+if [ ! -d "$dirname" ]
+then
+	echo $z
+	unzip $z -d $dirname
 fi
 
 ) &>> extract-$DATE.log
