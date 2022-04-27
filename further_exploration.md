@@ -1,7 +1,5 @@
 
-There are non tar files in the old download I did, the current download hasn't finished at the time of writing.
-
-TODO: extract zip, rar and nested tar/gz files.
+Misnamed and non .tar.gz files did cause me some issues.
 
 ```sh
 zpool create pool -O dedup=on /dev/sda5
@@ -131,3 +129,5 @@ file *.zip | grep -v Zip
 
 Future ideas:
 Rename all files to hashes, symlink to hash or similar to remove duplicates
+
+`( find . -type f -print0 | xargs -0 -P16 sha256sum > ../sha256sums ) >> ../log-sha256sums`
