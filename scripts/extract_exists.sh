@@ -1,5 +1,5 @@
 #!/bin/bash
-set -o unset
+set -u
 
 IFS=$(echo -en "\n\b")
 DATE=`date +%s`
