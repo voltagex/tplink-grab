@@ -96,5 +96,36 @@ re605xv1_gplcode.zip
 and
 
 ```
-/tmp/share/Data/Compressed/TPLink/GPL_TL-WR941NDV6.tar.gz: RAR archive data, v4, os: Win32
+AX11000_GPL_20190724.tar.gz:                      bzip2 compressed data, block size = 900k
+Archer_C7_1.0.tar.gz:                             bzip2 compressed data, block size = 900k
+GPL_C8v4_eu_us_20170417.tar.gz:                   bzip2 compressed data, block size = 900k
+GPL_C9v4_US_20170110.tar.gz:                      bzip2 compressed data, block size = 900k
+GPL_C9v5_EU_20170110.tar.gz:                      bzip2 compressed data, block size = 900k
+GPL_TL-WR941NDV6.tar.gz:                          RAR archive data, v4, os: Win32
+GPL_e4r.tar.gz:                                   POSIX tar archive (GNU)
+NC250V1.tar.gz:                                   bzip2 compressed data, block size = 900k
+TL-WPA9610_KIT_V1.0_GPL.gz:                       POSIX tar archive (GNU)
+TL-WR1042ND_GPL_Code.tar.gz:                      bzip2 compressed data, block size = 900k
+TL-WR843ND(UN)1.0_GPL.tar.gz:                     bzip2 compressed data, block size = 900k
+eap225-odv3-gpl.tar.gz:                           POSIX tar archive (GNU)
+re600xv2_gplcod.tar.gz:                           POSIX tar archive (GNU)
+855rev1_eu_gpl_code.tar.bz2:                      gzip compressed data
+8968V2_OpenSource.tar.bz2:                        gzip compressed data
+TL-ER6020(UN)2.0_GPL.tar.bz2:                     gzip compressed data
+TL-R480T-plus(UN)9.0_GPL.tar.bz2:                 gzip compressed data
+TL-R600VPN(UN)4.0-GPL-new.tar.bz2:                gzip compressed data
+WPA8730_GPL_CODE(20160616).tar.bz2:               gzip compressed data
+eap_gpl_code.tar.bz2:                             gzip compressed data
+RE450_V2_GPL.zip:                                 bzip2 compressed data, block size = 900k
 ```
+
+manually collated with 
+
+```
+file *.gz | grep -v gzip
+file *.tgz | grep -v gzip
+file *.bz2 | grep -v bzip | cut -d ',' -f1
+file *.rar | grep -v RAR
+file *.zip | grep -v Zip
+```
+
