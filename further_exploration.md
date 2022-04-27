@@ -14,6 +14,7 @@ for t in /tmp/share/Data/Compressed/TPLink/*.tar*; do ( echo $t;tar --one-top-le
 
 TP-Link removed the following files between 2020 and 2022 (probably more, but I only did two crawls)
 
+```diff
 -EAP225-Outdoorv1_GPL.tar.gz
 -EAP225V3_GPL.tar.gz
 -EAP245V3_GPL.tar.bz2
@@ -29,3 +30,4 @@ TP-Link removed the following files between 2020 and 2022 (probably more, but I 
 -gpl_oc200.tar.bz2
 -t1600g-28ts_gpl.tar.gz
 -wpa8630pv2.1_au_GPL.tar.gz
+```
