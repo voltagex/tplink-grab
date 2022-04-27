@@ -39,9 +39,20 @@ Future plans to dump this into SQLite and compress with https://github.com/phire
 ### Output
 * output/{sha256sum of url} - WARC file used as cache 
 
+
+## second_pass.py
+Parses *.model.csv, downloads the additional model pages and parses them for more links to archives, which are then added to the corresponding *.tars.csv file
+
+## scripts/extract_exists.sh
+Run `bash extract_exists.sh path/to/archives` *in the path you want to extract to*
+
+
 ## TODO
 * Reduce amount of log spam - use https://gist.github.com/bdarnell/3118509 or similar
 
+* Rename output/ to cache/
+
 * second_pass: grab all links to tarballs, deduplicate, write metadata to sqlite (HEAD requests?), compare with already downloaded tarballs (?)
 
-* document second and third pass
+* document third pass
+
