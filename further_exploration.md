@@ -129,3 +129,5 @@ file *.rar | grep -v RAR
 file *.zip | grep -v Zip
 ```
 
+Future ideas:
+Rename all files to hashes, symlink to hash or similar to remove duplicates
