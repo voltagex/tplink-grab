@@ -92,3 +92,9 @@ re505xv1_gplcode.zip
 re605xv1_gplcode.zip
 
 ```
+
+and
+
+```
+/tmp/share/Data/Compressed/TPLink/GPL_TL-WR941NDV6.tar.gz: RAR archive data, v4, os: Win32
+```
