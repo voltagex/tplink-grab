@@ -35,11 +35,11 @@ done;
 
 for r in $1/*.rar; do 
 ( 
-filename=$(basename -- "$t")
+filename=$(basename -- "$r")
 dirname="${filename%%.rar}"
 if [ ! -d "$dirname" ]
 then
-	echo $t
+	echo $r
 	unrar -op$dirname $r
 fi
 
