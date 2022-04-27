@@ -14,7 +14,6 @@ then
 fi
 
 ) &>> extract-$DATE.log
-
 done;
 
 for t in $1/*.tgz; do 
@@ -29,7 +28,6 @@ fi
 
 
 ) &>> extract-$DATE.log
-
 done;
 
 
@@ -44,4 +42,4 @@ then
 fi
 
 ) &>> extract-$DATE.log
-
+done;
