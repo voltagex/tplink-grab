@@ -10,3 +10,6 @@ zfs create pool/data
 zfs set mountpoint=/data pool/data
 for t in /tmp/share/Data/Compressed/TPLink/*.tar*; do ( echo $t;tar --one-top-level -axf "$t" ) &>> /tmp/share/Data/Compressed/TPLink/extract.log; done
 ```
+
+
+Realised that I accidentally excluded not tar files from the latest download.
