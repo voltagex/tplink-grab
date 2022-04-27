@@ -31,3 +31,64 @@ TP-Link removed the following files between 2020 and 2022 (probably more, but I 
 -t1600g-28ts_gpl.tar.gz
 -wpa8630pv2.1_au_GPL.tar.gz
 ```
+
+
+Files that will need special handling (i.e not tar, or better wildcards) to extract them:
+
+```
+ls -1 | grep -vE '.tar|.txt|.log'
+11N_GPL.tgz
+ArcherC7v2_un_gpl.zip
+Archer_MR200V5_GPL.rar
+Archer_MR400V4_GPL.rar
+CPE610(UN)1.0_GPL.rar
+EAP Controller_V2.5_GPL.zip
+EAP320_1.0_gpl_code.zip
+EAP330_1.0_gpl_code.zip
+GPL TD_W8970V3.gz
+GPL-M5.zip
+GPL_Archer_VR1210v.tgz
+GPL_CODE_C50V4.2_RU.zip
+GPL_CODE_C50V4_RU.zip
+GPL_VR400V2.tgz
+NC200 1.0 GPL.rar
+NC220 1.0 GPL.rar
+NC450_1.0_GPL.rar
+RE200v2_GPL.rar
+RE450_V2_GPL.zip
+SmartPlug_GPL.tgz
+TL-MR6400(APAC)5.0_GPL.rar
+TL-MR6400V5_GPL_ALL.rar
+TL-WA830RE_V3.bz2
+TL-WA850RE(EU)_V5_GPL.zip
+TL-WA855RE(EU)_V3_GPL.zip
+TL-WA850RE(EU)_V5_GPL.zip
+TL-WA855RE(EU)_V3_GPL.zip
+TL-WA860RE(EU)_V5_GPL.zip
+TL-WA865REv5_GPL.rar
+TL-WPA4530_KIT_V2_GPL_Code.zip
+TL-WPA7510 KIT V1.0_GPL.rar
+TL-WPA8630_V1.0_GPL_CODE.rar
+TL-WPA9610_KIT_V1.0_GPL.gz
+TL-WR740Nv6.rar
+TL-WR741ND_WR740N_V3.rar
+TL-WR840N_V6.20.GPL.gz
+TL-WR840v2_GPL.rar
+TL-WR841nv11_GPL.rar
+TL-WR842ND(RU) 2.0_GPL.rar
+TL-WR849N_V6.20_GPL.gz
+TL_WR1043v3_GPL.rar
+TL_WR802NV1_GPL.rar
+TL_WR841V10_GPL.rar
+TouchP5v1_GPL_Source.zip
+WA901ndv4_en_GPL.rar
+WPA4230-GPL.tgz
+branch_hornet_linux.rar
+re350v1-gpl-code.zip
+re450v3_gplcode.rar
+re455v1_opensource.rar
+re500xv1_gplcode.zip
+re505xv1_gplcode.zip
+re605xv1_gplcode.zip
+
+```
