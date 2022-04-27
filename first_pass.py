@@ -5,6 +5,7 @@ import json
 import urllib.parse
 import os
 import os.path
+import logging
 
 def cache_countries():
     download_concurrently(get_countries())
@@ -14,7 +15,10 @@ def get_countries():
     location_elements = soup.find_all('li', {'class': 'location-item'})
     #TODO: this only grabs the first a in the li, which is OK for now
     elements = [li.find('a')['href'] + "support/gpl-code/" for li in location_elements]
+    logging.debug("Finished get_countries")
+    logging.debug("Country li tags: %r", elements)
     return set(elements)
+
 
 def parse_gpl_list():
     for c in get_countries():
@@ -41,6 +45,7 @@ def parse_gpl_list():
                 potential_json = potential_json.split(';\r\n')[0]
                 if 'menuTree' in potential_json: #did linebreaks change halfway through the download here?
                     potential_json = potential_json.split(';\n')[0]
+                parse_json_product_list(potential_json, c, appPath)
 
 def parse_json_product_list(json_string, url, appPath):
     if (os.path.isfile(f'links/{appPath}.tars.csv')):
@@ -68,7 +73,9 @@ def parse_json_product_list(json_string, url, appPath):
     json_file.close()
 
 if __name__ == '__main__':
+    logging.basicConfig(level=logging.DEBUG)
     if not os.path.isdir('links'): os.mkdir('links')
     if not os.path.isdir('output'): os.mkdir('output')
     cache_countries()
     parse_gpl_list()
+    assert(os.path.exists('links/au.tars.csv'))
