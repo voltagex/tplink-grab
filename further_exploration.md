@@ -130,4 +130,4 @@ file *.zip | grep -v Zip
 Future ideas:
 Rename all files to hashes, symlink to hash or similar to remove duplicates
 
-`( find . -type f -print0 | xargs -0 -P16 sha256sum > ../sha256sums ) >> ../log-sha256sums`
+`( find . -type f -print0 | xargs -0 -P16 sha256sum > ../sha256sums ) &>> ../log-sha256sums`
