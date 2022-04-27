@@ -56,11 +56,12 @@ def parse_json_product_list(json_string, url, appPath):
     for model in product_list.items():
         for product in model[1]:
             href = product['href'].strip()
-            if '.tar' in href: #direct link to archive
-                tar_links.write(f"{href},{url},{product['model_name']},{appPath}\n")
             if '?model' in href:
                 model_name = href.split('=')[1]
                 model_links.write(f"https://www.tp-link.com/phppage/gpl-res-list.html?model={urllib.parse.quote(model_name)}&appPath={appPath},{url},{product['model_name']},{appPath}\n")
+            if not '?model' in href: #direct link to archive, but we can't match on tar as there are zips and rars in places
+                tar_links.write(f"{href},{url},{product['model_name']},{appPath}\n")
+
 
     tar_links.close()
     model_links.close()
